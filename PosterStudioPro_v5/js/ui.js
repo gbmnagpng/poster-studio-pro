@@ -1,0 +1,1 @@
+// Stub para funcoes extras da interface\n

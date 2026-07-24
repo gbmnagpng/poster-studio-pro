@@ -1,0 +1,1 @@
+// Stub para o gerenciamento de estado\n
