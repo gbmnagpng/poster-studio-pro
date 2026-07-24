@@ -25,9 +25,6 @@ window.PDFEngine = {
                 
                 ctx.clearRect(0, 0, printW_px, printH_px);
                 
-                // CORREÇÃO DO FUNDO PRETO:
-                // Preenche todo o fundo com branco antes de desenhar a imagem.
-                // Isso evita que as sobras fiquem transparentes e virem pretas no JPEG.
                 ctx.fillStyle = '#ffffff';
                 ctx.fillRect(0, 0, printW_px, printH_px);
                 
