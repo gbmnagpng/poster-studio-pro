@@ -6,15 +6,18 @@ The ultimate feature? All the intelligence and processing run **100% offline (Cl
 
 ---
 
-## ✨ Key Features
+## ✨ Key Features & Recent Updates
 
 - 🔒 **100% Offline & Private:** No images are sent to the cloud. All processing happens in your browser's local memory.
-- 📐 **Automatic Grid Calculation:** Just enter the desired physical size of the poster and your printer's paper size (A4, A3, Letter, etc.). The system instantly calculates how many sheets are needed.
-- ✂️ **Crop Marks & Overlap:** Add an overlap area between sheets and generate a perfect solid guide line for craft knife cutting, ensuring millimeter-perfect alignment.
-- 🔢 **Smart Numbering:** Sheets are automatically numbered (e.g., A1, A2, B1, B2) at the footer (in the white safety margin) to make assembly easy without cluttering the artwork.
-- 🚀 **Incremental PDF Engine:** Smart architecture that renders and saves the PDF sheet by sheet, continuously freeing up memory. This allows generating massive posters without crashing standard computers.
-- 🖨️ **Direct Printing:** Send the finished project directly to the operating system's print dialog or export standard `.pdf` files.
-- 📊 **Real-Time Quality Analysis:** The system calculates the estimated final DPI based on the chosen size and warns if the print quality will be Excellent, Good, or Low.
+- 📐 **Automatic Grid & Aspect Ratio Lock:** Enter the desired physical size of the poster and your printer's paper size. The new **Keep Image Ratio** toggle ensures your photos are perfectly scaled without ever stretching or distorting.
+- 🎛️ **Print Quality & Advanced Upscaling:** Choose between 3 rendering modes before exporting:
+  - **Draft (Ink Saver):** Lowers DPI and increases compression for quick assembly tests.
+  - **Normal:** Standard 300 DPI for great cost-benefit.
+  - **High Quality (Upscaling):** Uses *Pica.js* (Lanczos interpolation & Unsharp Masking) to prevent pixelation when blowing up small images to giant poster sizes.
+- 🧰 **Interactive Toolbar:** Easily navigate your workspace with the Pan (Hand) tool, rotate your image 90° for perfect orientation, and seamlessly zoom in/out (or use the mouse wheel).
+- ✂️ **Crop Marks & Overlap:** Add an overlap area between sheets and generate a solid guide line for craft knife cutting, ensuring millimeter-perfect alignment.
+- 🔢 **Smart Numbering:** Sheets are automatically numbered (e.g., A1, A2, B1) in the white safety margin to make assembly easy without cluttering the artwork.
+- 🖨️ **Direct Printing:** Send the finished project directly to the operating system's print dialog with a single click, or export a standard `.pdf` file.
 
 ---
 
@@ -23,8 +26,9 @@ The ultimate feature? All the intelligence and processing run **100% offline (Cl
 The application was built with a focus on performance and modularity, using only native web technologies and client-side executable libraries:
 
 - **HTML5, CSS3 & JavaScript (Vanilla ES6)**
-- **[Fabric.js](http://fabricjs.com/)** - Rendering engine and Canvas manipulation (Zoom, Pan, Crop).
+- **[Fabric.js](http://fabricjs.com/)** - Rendering engine and interactive Canvas manipulation.
 - **[PDF-lib](https://pdf-lib.js.org/)** - Multi-page PDF document creation, modification, and assembly.
+- **[Pica.js](https://github.com/nodeca/pica)** - High-quality image resizing in browser (Lanczos filter algorithm).
 - **[QRCode.js](https://davidshimjs.github.io/qrcodejs/)** - Dynamic QR Code generation for the credits section.
 - **[JSZip](https://stuk.github.io/jszip/)** - Compressed file manipulation.
 
@@ -36,10 +40,10 @@ Because it's an entirely browser-based application, using it is extremely simple
 
 1. **Download** or clone this repository (`git clone https://github.com/gbmnagpng/poster-studio-pro.git`).
 2. Extract the files on your computer.
-3. Double-click the `index.html` file.
-4. The system will open in your default browser (Chrome, Edge, Firefox, Safari).
-5. Drag an image to the center of the screen (or use `Ctrl+V`).
-6. Configure the dimensions on the right sidebar and click **Export PDF**.
+3. Double-click the `index.html` file to open it in your default browser (Chrome, Edge, Safari, Firefox).
+4. Drag an image to the center of the screen (or click "Import Image").
+5. Adjust your dimensions and ensure "Keep Image Ratio" is checked.
+6. Select your preferred Print Quality and click **🖨️ Print** or **Export PDF**.
 
 ---
 
@@ -53,9 +57,9 @@ PosterStudioPro/
 ├── css/
 │   └── style.css       # Styles (Professional Dark Theme, Flexbox)
 └── js/
-    ├── app.js          # Initialization, Global Events, and Drag & Drop
+    ├── app.js          # Initialization, Global Events, Toolbar, and Drag & Drop
     ├── poster.js       # Math engine (grid calculation, DPI, measurements)
-    ├── pdf.js          # Incremental PDF Engine (Fabric Canvas -> PDF-lib)
+    ├── pdf.js          # Incremental PDF Engine with Quality settings & Pica.js
     ├── utils.js        # Physical unit conversion utilities
     ├── image.js        # Isolated image handling logic
     ├── ui.js           # Interface (DOM) updates
